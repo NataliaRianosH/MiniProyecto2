@@ -2,7 +2,13 @@ package myProject;
 
 import java.io.*;
 import java.util.ArrayList;
-
+/**
+ * This class is used for...
+ * @autor Natalia Riaños Horta (2042568) rianos.natalia@correounivalle.edu.co
+ * Miguel Ángel Ospina Hernández (2040634) miguel.ospina.hernandez@correounivalle.edu.co
+ *
+ * @version v.1.0.0 date: 08/02/2022
+ */
 public class FileManager {
     public static final String PATH = "src/myProject/files/diccionario.txt";
     private FileReader fileReader;

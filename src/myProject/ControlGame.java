@@ -57,7 +57,7 @@ public class ControlGame {
      * */
     public void generarPalabrasDelNivel(){
         palabrasDelNivel.clear();
-        System.out.println("nivel en generar palabras del nivel"+nivel);
+       // System.out.println("nivel en generar palabras del nivel"+nivel);
         Random random=new Random();
         int indexAleatorio; //index de la palabra que vamos a meter en el arry de palabras correctas
 
@@ -73,19 +73,19 @@ public class ControlGame {
      * */
     public void generarPalabrasCorrectas(){
         palabrasCorrectas.clear();
-        System.out.println("nivel en fenerar palabras correctas"+nivel);
+       // System.out.println("nivel en fenerar palabras correctas"+nivel);
         Random random=new Random();
         int indexAleatorio; //index de la palabra que vamos a meter en el arry de palabras correctas
         ArrayList<String> copiaPalabrasNivel= new ArrayList<>();
         copiaPalabrasNivel= (ArrayList<String>) palabrasDelNivel.clone();
-        System.out.println("PALABRAS A MEMORIAR genCorrectas"+palabrasAmemorizar);
+       // System.out.println("PALABRAS A MEMORIAR genCorrectas"+palabrasAmemorizar);
         for(int i=0; i<palabrasAmemorizar;i++){ //se va a repetir la cantidad de palabaras que hay que memorizar en el nivel
             //es decir la cantidad que debe tener palabras correctas
             indexAleatorio=random.nextInt(copiaPalabrasNivel.size()+0); //genera un aleatorio entre 0 y el tamaño del array donde van a quedar las palabras incorrectas
             palabrasCorrectas.add(copiaPalabrasNivel.get(indexAleatorio)); //podemos añadir el elemento aleatorio sin problema
             copiaPalabrasNivel.remove(indexAleatorio);//eliminamos el elemento aleatorio de las palabras incorrectas
         }
-        System.out.println("palabras correctas : " + palabrasCorrectas.size());
+     //   System.out.println("palabras correctas : " + palabrasCorrectas.size());
      //   palabrasCorrectas.forEach(System.out::println);
 
     }
@@ -93,7 +93,7 @@ public class ControlGame {
      * actualiza el nuevo nivel
      * */
     public void subirNivel(){
-        System.out.println("SE SUbio el nivel en el control");
+      //  System.out.println("SE SUbio el nivel en el control");
         fileManager.subirNivel(nombresUsuarios.indexOf(nombreUsuario));
         actualizarNivel();
     }
@@ -115,10 +115,10 @@ public class ControlGame {
                     null, nombres,
                     "seleccion");
 
-            System.out.println("El usuario ha elegido "+seleccion);
+           // System.out.println("El usuario ha elegido "+seleccion);
 
             if(seleccion==null){
-                System.out.println("canceló");
+             //   System.out.println("canceló");
                 nombreUsuario=null;
             }else {
                 nombreUsuario=String.valueOf(seleccion);
@@ -141,7 +141,7 @@ public class ControlGame {
     public void crearUsuario(){
         //ializarVariables();
         String nuevo = JOptionPane.showInputDialog(null,"ingresa tu nombre","registro");
-        System.out.println(nuevo);
+       // System.out.println(nuevo);
         if(nuevo==null){
 
         }else{
@@ -169,7 +169,7 @@ public class ControlGame {
                 null, nombres,
                 "seleccion");
 
-        System.out.println("El usuario ha elegido "+seleccion);
+     //   System.out.println("El usuario ha elegido "+seleccion);
         if(seleccion==null){
             usuarioaAeliminar=null;
         }else{
@@ -185,37 +185,37 @@ public class ControlGame {
 
 
     public void InitVariables(){
-        System.out.println("nivel en init variables "+nivel);
+     //   System.out.println("nivel en init variables "+nivel);
         switch (nivel){
             case 1:
-                palabrasAmemorizar=2;
-                cantPalabrasDelNivel=3;
-                aciertosParaGanar=2;
+                palabrasAmemorizar=10;
+                cantPalabrasDelNivel=20;
+                aciertosParaGanar=14;
                 break;
             case 2:
-                palabrasAmemorizar=3;
-                cantPalabrasDelNivel=4;
-                aciertosParaGanar=3;
+                palabrasAmemorizar=20;
+                cantPalabrasDelNivel=40;
+                aciertosParaGanar=28;
                 break;
             case 3:
                 palabrasAmemorizar=25;
                 cantPalabrasDelNivel=50;
-                aciertosParaGanar=75;
+                aciertosParaGanar=37;
                 break;
             case 4:
                 palabrasAmemorizar=30;
                 cantPalabrasDelNivel=60;
-                aciertosParaGanar=80;
+                aciertosParaGanar=48;
                 break;
             case 5:
                 palabrasAmemorizar=35;
                 cantPalabrasDelNivel=70;
-                aciertosParaGanar=80;
+                aciertosParaGanar=56;
                 break;
             case 6:
                 palabrasAmemorizar=40;
                 cantPalabrasDelNivel=80;
-                aciertosParaGanar=85;
+                aciertosParaGanar=68;
                 break;
             case 7:
                 palabrasAmemorizar=50;
@@ -225,17 +225,17 @@ public class ControlGame {
             case 8:
                 palabrasAmemorizar=60;
                 cantPalabrasDelNivel=120;
-                aciertosParaGanar=90;
+                aciertosParaGanar=108;
                 break;
             case 9:
                 palabrasAmemorizar=70;
                 cantPalabrasDelNivel=140;
-                aciertosParaGanar=95;
+                aciertosParaGanar=133;
                 break;
             case 10:
                 palabrasAmemorizar=100;
                 cantPalabrasDelNivel=100;
-                aciertosParaGanar=100;
+                aciertosParaGanar=200;
                 break;
         }
 

@@ -77,7 +77,7 @@ public class PanelJuego extends JPanel {
     public void fase1(){
         mostrarPalabras=true;
         indice=0;
-        caso=1;
+        caso=0;
         aciertos=0;
         seleccion=-1;
         panelNivel.aumentarAciertos(aciertos);
@@ -205,14 +205,15 @@ public class PanelJuego extends JPanel {
 
       //  panelNivel.reset2();
         fase1();
-
     }
 
     private class Escucha implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+
             if(mostrarPalabras) {
                 if (e.getSource() == botonEmpezar) {
+                    fase1();
                     controlJuego.getNivel();
                     caso = 1;
                     tiempo=5;
@@ -221,6 +222,7 @@ public class PanelJuego extends JPanel {
                     System.out.println("los timer empieza a correr"); //va mostrar el caso 1+
                     repaint();
                     botonEmpezar.removeActionListener(escucha);
+                    System.out.println("MOSTARA PALABRAS indice: "+indice+"caso "+caso+"seleccion "+ seleccion+ "respuesta "+respuesta);
                 }
 
                 if (e.getSource() == unSegundo) {
@@ -228,7 +230,7 @@ public class PanelJuego extends JPanel {
                     panelNivel.reset();
                 }
 
-                if (e.getSource() == sieteSegundos) {
+                if (e.getSource() == sieteSegundos){
                     indice++;
                         if (indice == controlJuego.getPalabrasCorrectas().size()) {
                             //terminaron de mostrarse
@@ -260,6 +262,7 @@ public class PanelJuego extends JPanel {
                     unSegundo.start();
                     fase2();
                     repaint();
+                    System.out.println("TURNO indice: "+indice+"caso "+caso+"seleccion "+ seleccion+ "respuesta "+respuesta);
                 }
                 controlTiempo();
                 if (e.getSource() == unSegundo) {
